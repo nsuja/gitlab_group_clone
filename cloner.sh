@@ -1,6 +1,6 @@
 #!/bin/bash
 #ejemplo de url
-#ssh://<a class="project" href="/td3/r5054-Gaggino-Marcelo-Eduardo"><div class="dash-project-avatar">
+#ssh://<a class="project" href="/td3/r5054-xxxxxxxxxx-yyyyyyy"><div class="dash-project-avatar">
 #URL: url de la base del gitlab
 #GRUPO: grupo del cual descargar repositorios
 #CURSO: filtro que se la aplica a la la url
