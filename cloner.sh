@@ -6,16 +6,18 @@
 #CURSO: filtro que se la aplica a la la url
 #GITLAB_TOKEN: token privado de gitlab
 
-URL="gitlab.frba.utn.edu.ar"
 GRUPO="/td3/"
-CURSO="r5051"
-DEBUG=0
+CURSO="r5054"
+URL="gitlab.frba.utn.edu.ar"
+URL_FILTER="gitlab.frba.utn.edu.ar/dashboard/projects?name=$CURSO&sort=latest_activity_desc"
+DEBUG=1
 
 if [ -z $GITLAB_TOKEN ]; then
 	echo "Falta definir el token privado \$GITLAB_TOKEN"
 	exit 1;
 fi
-
+#curl --header "PRIVATE-TOKEN: $GITLAB_TOKEN" https://$URL 2>&- | grep $CURSO | grep -v class
+#https://gitlab.frba.utn.edu.ar/dashboard/projects?utf8=%E2%9C%93&name=r5054&sort=latest_activity_desc
 while read -r line
 do
 	if [ $DEBUG -eq 1 ]; then
@@ -35,6 +37,7 @@ do
 		fi
 		git clone "ssh://git@$URL$GRUPO$line"
 	fi
-done <<< $(curl --header "PRIVATE-TOKEN: $GITLAB_TOKEN" https://$URL 2>&- | grep $CURSO | grep -v class)
+#done <<< $(curl --header "PRIVATE-TOKEN: $GITLAB_TOKEN" https://$URL 2>&- | grep $CURSO | grep -v class)
+done <<< $(curl --header "PRIVATE-TOKEN: $GITLAB_TOKEN" https://$URL_FILTER 2>&- | grep $CURSO- | grep -v class)
 
 exit 0
