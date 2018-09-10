@@ -6,6 +6,7 @@
 #CURSO: filtro que se la aplica a la la url
 #GITLAB_TOKEN: token privado de gitlab
 
+
 GRUPO="/td3/"
 CURSO="r5054"
 URL="gitlab.frba.utn.edu.ar"
